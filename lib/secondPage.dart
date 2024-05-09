@@ -10,6 +10,9 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        // showSelectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        // showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(
             icon: IconButton(
@@ -75,23 +78,20 @@ class SecondPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: <Widget>[
-            Flexible(
-              flex: 4,
-              child: Padding(
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                width: double.infinity,
+                height: 300,
                 padding: const EdgeInsets.all(10),
-                child: Container(
-                  width: 400,
-                  height: 300,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    shape: BoxShape.rectangle,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
                   ),
-                  clipBehavior:
-                      Clip.hardEdge, // Set clipBehavior to Clip.hardEdge
-                  child: Image.asset(
-                    "images/artist.png",
+                  shape: BoxShape.rectangle,
+                  image: DecorationImage(
                     fit: BoxFit.cover,
+                    image: AssetImage("images/artist.png"),
                   ),
                 ),
               ),
@@ -99,206 +99,267 @@ class SecondPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color.fromARGB(255, 141, 101, 252),
+                    ),
+                    child: const Text(
+                      "Play All Show",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 40),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color.fromARGB(255, 224, 210, 248),
+                    ),
+                    child: const Text(
+                      "Subscribe",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  "12 Popular Show",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "See All",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey),
+                ),
+              ],
+            ),
             Flexible(
-                flex: 5,
+              child: SingleChildScrollView(
                 child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Flexible(
-                            child: Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(255, 141, 101, 252),
-                          ),
-                          height: 50,
-                          child: const Text(
-                            "Play All Show",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        )),
-                        const SizedBox(
-                          width: 40,
-                        ),
-                        Flexible(
-                            child: Center(
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: const Color.fromARGB(255, 224, 210, 248),
-                            ),
-                            height: 50,
-                            child: const Text(
-                              "Subscribe",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "12 Popular Show",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "See All",
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey),
-                        ),
-                      ],
-                    ),
-               
-                    SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
+                          Row(
+                            children: [
+                              Image.asset(
+                                "images/artist2.png",
+                                scale: 0.8,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.asset(
-                                      "images/artist2.png",
-                                      scale: 0.8,
+                                    Text(
+                                      "Enjoy",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Enjoy",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18),
-                                          ),
-                                          Text("Socially Buzzed")
-                                        ],
-                                      ),
-                                    ),
+                                    Text("Socially Buzzed")
                                   ],
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      // border: Border.all(),
-                                      shape: BoxShape.circle,
-                                      color: Colors.grey.shade200),
-                                  child: Icon(Icons.takeout_dining_sharp),
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                // border: Border.all(),
+                                shape: BoxShape.circle,
+                                color: Colors.grey.shade200),
+                            child: Icon(Icons.takeout_dining_sharp),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "images/artist2.png",
+                                scale: 0.8,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.asset(
-                                      "images/artist2.png",
-                                      scale: 0.8,
+                                    Text(
+                                      "Enjoy",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Enjoy",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18),
-                                          ),
-                                          Text("Socially Buzzed")
-                                        ],
-                                      ),
-                                    ),
+                                    Text("Socially Buzzed")
                                   ],
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      // border: Border.all(),
-                                      shape: BoxShape.circle,
-                                      color: Colors.grey.shade200),
-                                  child: Icon(Icons.takeout_dining_sharp),
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                // border: Border.all(),
+                                shape: BoxShape.circle,
+                                color: Colors.grey.shade200),
+                            child: Icon(Icons.takeout_dining_sharp),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "images/artist2.png",
+                                scale: 0.8,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.asset(
-                                      "images/artist2.png",
-                                      scale: 0.8,
+                                    Text(
+                                      "Enjoy",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Enjoy",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18),
-                                          ),
-                                          Text("Socially Buzzed")
-                                        ],
-                                      ),
-                                    ),
+                                    Text("Socially Buzzed")
                                   ],
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      // border: Border.all(),
-                                      shape: BoxShape.circle,
-                                      color: Colors.grey.shade200),
-                                  child: Icon(Icons.takeout_dining_sharp),
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                // border: Border.all(),
+                                shape: BoxShape.circle,
+                                color: Colors.grey.shade200),
+                            child: Icon(Icons.takeout_dining_sharp),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "images/artist2.png",
+                                scale: 0.8,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Enjoy",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
+                                    Text("Socially Buzzed")
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                // border: Border.all(),
+                                shape: BoxShape.circle,
+                                color: Colors.grey.shade200),
+                            child: Icon(Icons.takeout_dining_sharp),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "images/artist2.png",
+                                scale: 0.8,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 15,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Enjoy",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
+                                    Text("Socially Buzzed")
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                // border: Border.all(),
+                                shape: BoxShape.circle,
+                                color: Colors.grey.shade200),
+                            child: Icon(Icons.takeout_dining_sharp),
+                          )
                         ],
                       ),
                     ),
                   ],
-                )),
+                ),
+              ),
+            ),
           ],
         ),
       ),
